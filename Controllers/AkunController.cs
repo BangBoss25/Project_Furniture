@@ -17,9 +17,10 @@ namespace Project_Furniture.Controllers
         private readonly AppDbContext _context;
         private readonly IAkunService _akSer;
 
-        public AkunController(IAkunService akSer)
+        public AkunController(IAkunService akSer, AppDbContext context)
         {
             _akSer = akSer;
+            _context = context;
         }
 
         public IActionResult SignUp()
