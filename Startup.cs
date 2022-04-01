@@ -8,8 +8,10 @@ using Microsoft.Extensions.Hosting;
 using Project_Furniture.Data;
 using Project_Furniture.Models;
 using Project_Furniture.Repositories.AkunRepository;
+using Project_Furniture.Repositories.BarangRepository;
 using Project_Furniture.Services;
 using Project_Furniture.Services.AkunService;
+using Project_Furniture.Services.BarangService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +45,9 @@ namespace Project_Furniture
 
             services.AddScoped<IAkunRepository, AkunRepository>();
             services.AddScoped<IAkunService, AkunService>();
+
+            services.AddScoped<IBarangRepository, BarangRepository>();
+            services.AddScoped<IBarangService, BarangService>();
 
             services.AddTransient<FileService>();
 

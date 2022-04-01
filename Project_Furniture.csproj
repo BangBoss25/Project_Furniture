@@ -20,7 +20,6 @@
   <ItemGroup>
     <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Areas\User\Views\" />
-    <Folder Include="Repositories\BarangRepository\" />
   </ItemGroup>
 
 </Project>
