@@ -6,7 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Project_Furniture.Data;
+using Project_Furniture.Models;
 using Project_Furniture.Repositories.AkunRepository;
+using Project_Furniture.Services;
 using Project_Furniture.Services.AkunService;
 using System;
 using System.Collections.Generic;
@@ -41,6 +43,12 @@ namespace Project_Furniture
 
             services.AddScoped<IAkunRepository, AkunRepository>();
             services.AddScoped<IAkunService, AkunService>();
+
+            services.AddTransient<FileService>();
+
+            services.AddTransient<EmailService>();
+
+            services.Configure<Email>(Configuration.GetSection("AturEmail"));
 
             services.AddControllersWithViews();
         }
