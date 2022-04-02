@@ -14,7 +14,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <button type="submit" asp-action="Create" class="btn btn-outline-success"><img src="~/ui-add.svg" alt="Alternate Text" width="15"/> Add Data</button>
+            <a asp-action="Create"><input type="submit" class="btn btn-outline-success" value="Add Data"></a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -41,8 +41,7 @@
                                 <td>@Html.DisplayFor(modelItem => item.Terjual)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Deskripsi)</td>
                                 <td>
-                                    <a href="#"><i class="fa-solid fa-memo-circle-info"></i></a>
-                                    <a href="#"><i class="fas fa-edit"></i></a>
+                                    <a asp-action="Update" asp-route-id ="@item.Id"><i class="fas fa-edit"></i></a>
                                     <a asp-action="Delete" asp-route-id ="@item.Id"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>

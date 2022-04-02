@@ -94,7 +94,7 @@ namespace Project_Furniture
                     );
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=UserFurn}/{id?}");
             });
         }
     }

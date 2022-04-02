@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Project_Furniture.Models;
+using Project_Furniture.Services.BarangService;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,10 +13,12 @@ namespace Project_Furniture.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IBarangService _serv;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IBarangService serv)
         {
             _logger = logger;
+            _serv = serv;
         }
 
         public IActionResult Index()
@@ -32,6 +35,13 @@ namespace Project_Furniture.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        public IActionResult UserFurn()
+        {
+            var data = _serv.AmbilSemuaBarang();
+            return View(data);
         }
     }
 }
