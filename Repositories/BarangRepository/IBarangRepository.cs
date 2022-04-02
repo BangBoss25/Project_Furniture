@@ -12,6 +12,7 @@ namespace Project_Furniture.Repositories.BarangRepository
         Task<Barang> AmbilBarangByIdAsync(int Id);
         Task<bool> BuatBarangAsync(Barang data);
         Task<bool> HapusBarangAsync(Barang data);
+        Task<bool> UbahBarangAsync(Barang data);
         Task<Barang> CariBarangAsync(int Id); 
     }
 }

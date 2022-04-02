@@ -47,5 +47,13 @@ namespace Project_Furniture.Repositories.BarangRepository
 
             return true;
         }
+
+        public async Task<bool> UbahBarangAsync(Barang data)
+        {
+            _context.Update(data);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

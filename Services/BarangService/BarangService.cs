@@ -43,5 +43,26 @@ namespace Project_Furniture.Services.BarangService
 
             return _repo.HapusBarangAsync(brg).Result;
         }
+
+        public bool UbahBarang(Barang fromView, IFormFile Image)
+        {
+            var brg = _repo.CariBarangAsync(fromView.Id).Result;
+
+            if (brg != null)
+            {
+                brg.NamaBarang = fromView.NamaBarang;
+                brg.Stok = fromView.Stok;
+                brg.Harga = fromView.Harga;
+                brg.Deskripsi = fromView.Deskripsi;
+
+                if (Image != null)
+                    brg.Image = _file.SaveFile(Image).Result;
+                else
+                    brg.Image = brg.Image;
+
+                return _repo.UbahBarangAsync(brg).Result;
+            }
+            return false;
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace Project_Furniture.Areas.Admin.Controllers
     public class BarangController : Controller
     {
         private readonly IBarangService _service;
+        private object search;
 
         public BarangController(IBarangService serv)
         {
@@ -23,9 +24,9 @@ namespace Project_Furniture.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var data = _service.AmbilSemuaBarang();
+            search = _service.AmbilSemuaBarang();
 
-            return View(data);
+            return View(search);
         }
 
         public IActionResult Create()
@@ -46,9 +47,38 @@ namespace Project_Furniture.Areas.Admin.Controllers
             return View(brg);
         }
 
-        public IActionResult Hapus(int Id)
+        public IActionResult Update(int Id)
         {
-            var search = _service.AmbilBarangById(Id);
+            search = _service.AmbilBarangById(Id);
+
+            if (search != null)
+            {
+                return View(search);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult Update(Barang brg, IFormFile Image)
+        {
+            if (ModelState.IsValid)
+            {
+                search = _service.AmbilBarangById(brg.Id);
+
+                if (search != null)
+                {
+                    _service.UbahBarang(brg, Image);
+
+                    return RedirectToAction("Index");
+                }
+                return NotFound();
+            }
+            return View(brg);
+        }
+
+        public IActionResult Delete(int Id)
+        {
+            search = _service.AmbilBarangById(Id);
             
             if (search != null)
             {

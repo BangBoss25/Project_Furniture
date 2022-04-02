@@ -41,8 +41,9 @@
                                 <td>@Html.DisplayFor(modelItem => item.Terjual)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Deskripsi)</td>
                                 <td>
+                                    <a href="#"><i class="fa-solid fa-memo-circle-info"></i></a>
                                     <a href="#"><i class="fas fa-edit"></i></a>
-                                    <a asp-action="Hapus" asp-route-id ="@item.Id"><i class="fas fa-trash"></i></a>
+                                    <a asp-action="Delete" asp-route-id ="@item.Id"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         }

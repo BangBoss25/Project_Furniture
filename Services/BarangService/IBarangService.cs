@@ -13,5 +13,6 @@ namespace Project_Furniture.Services.BarangService
         Barang AmbilBarangById(int Id);
         bool BuatBarang(Barang data, IFormFile Image);
         bool HapusBarang(int id);
+        bool UbahBarang(Barang fromView, IFormFile Image);
     }
 }
