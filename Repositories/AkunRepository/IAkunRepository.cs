@@ -9,7 +9,7 @@ namespace Project_Furniture.Repositories.AkunRepository
     public interface IAkunRepository
     {
         Task<bool> DaftarUserAsync(User data);
-
+        Task<User> CariUserAsync(string Username);
 
         //USER
         Task<List<User>> AmbilSemuaUserAsync();

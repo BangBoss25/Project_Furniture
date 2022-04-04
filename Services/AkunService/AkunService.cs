@@ -21,7 +21,6 @@ namespace Project_Furniture.Services.AkunService
             return _ar.DaftarUserAsync(data).Result;
         }
 
-
         // User
         public List<User> AmbilSemuaUser()
         {

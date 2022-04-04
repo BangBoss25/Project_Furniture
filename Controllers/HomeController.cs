@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Project_Furniture.Helper;
 using Project_Furniture.Models;
 using Project_Furniture.Services.BarangService;
 using System;
@@ -42,6 +44,18 @@ namespace Project_Furniture.Controllers
         {
             var data = _serv.AmbilSemuaBarang();
             return View(data);
+        }
+
+        public IActionResult DetailBarang(int Id)
+        {
+            Barang search = _serv.AmbilBarangById(Id);
+
+            if (search != null)
+            {
+                return View(search);
+            }
+
+            return NotFound();
         }
     }
 }

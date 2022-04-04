@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Project_Furniture.Models;
 using Project_Furniture.Services.BarangService;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,18 @@ namespace Project_Furniture.Areas.User.Controllers
         {
             var brg = _service.AmbilSemuaBarang();
             return View(brg);
+        }
+
+        public IActionResult DetailBarang(int Id)
+        {
+            Barang search = _service.AmbilBarangById(Id);
+
+            if (search != null)
+            {
+                return View(search);
+            }
+
+            return NotFound();
         }
     }
 }

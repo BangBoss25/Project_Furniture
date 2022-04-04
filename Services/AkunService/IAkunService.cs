@@ -10,7 +10,6 @@ namespace Project_Furniture.Services.AkunService
     {
         bool DaftarUser(User data);
 
-
         //USER
         List<User> AmbilSemuaUser();
         User AmbilUserByUsername(string username);

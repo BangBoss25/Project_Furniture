@@ -25,6 +25,10 @@ namespace Project_Furniture.Repositories.AkunRepository
             return true;
         }
 
+        public async Task<User> CariUserAsync(string Username)
+        {
+            return await _context.Tb_User.FirstOrDefaultAsync(x => x.Username == Username);
+        }
 
         // USER
         public async Task<List<User>> AmbilSemuaUserAsync()
